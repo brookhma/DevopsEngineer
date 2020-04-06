@@ -1,4 +1,3 @@
-# DevopsEngineer
 # deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server
 
 Ubuntu 18 freashly installed Virtula Machine
@@ -7,14 +6,14 @@ oracle@devops:~$ sudo apt update
 
 
 
-Installing Nginx
+# Installing Nginx
 sudo apt install -y nginx curl
 
-Installing PostgreSQL
+# Installing PostgreSQL
 Type the following command to install postgesql database:
 sudo apt install -y postgresql postgresql-contrib
 
-Creating Database
+# Creating Database
 You can create a database and database user for your Django application like below:
 
 oracle@devops:~$sudo -u postgres psql
