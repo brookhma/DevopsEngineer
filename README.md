@@ -1,5 +1,5 @@
 # DevopsEngineer
-deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server
+# deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server
 
 Ubuntu 18 freashly installed Virtula Machine
 
