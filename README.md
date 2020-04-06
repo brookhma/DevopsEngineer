@@ -17,9 +17,9 @@ sudo apt install -y postgresql postgresql-contrib
 You can create a database and database user for your Django application like below:
 
 <p>sudo -u postgres psql</p>
-<p>create database testproject;/<p>
-<p>create user testprojectuser with password 'TypePasswordHere';</p>
-grant all privileges on database testproject to testprojectuser;
+<p>create database app1db;/<p>
+<p>create user app1user with password 'password';</p>
+<p>grant all privileges on database app1db to app1user;</p>
 \q
 
 
