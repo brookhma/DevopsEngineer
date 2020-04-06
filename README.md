@@ -26,9 +26,9 @@ grant all privileges on database testproject to testprojectuser;
 
 Creating Python Virtual Environment
 
-cheak current Python Version 
+check current Python Version 
 
-oracle@devops:~$ python3 -V
+python3 -V
 Python 3.6.9
 
-oracle@devops:~$ sudo apt install python3-pip
+sudo apt install python3-pip
