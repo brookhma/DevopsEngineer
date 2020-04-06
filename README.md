@@ -24,11 +24,26 @@ You can create a database and database user for your Django application like bel
 
 
 
-Creating Python Virtual Environment
+# Creating Python Virtual Environment
 
 check current Python Version 
 
 python3 -V
-Python 3.6.9
-
+ 
 sudo apt install python3-pip
+
+upgrade pip Version 
+
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install virtualenv
+
+
+
+mkdir ~/project
+cd ~/project
+
+virtualenv projectenv
+
+
+source project/bin/activate
+pip install django gunicorn psycopg2-binary
