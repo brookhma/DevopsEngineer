@@ -33,6 +33,77 @@ Once EPEL is enabled, we can install pip by typing:
 
 sudo yum install python3 python3-pip 
 
+# Install and Use PostgreSQL
+
+ $sudo yum install postgresql-server gcc postgresql-devel postgresql-contrib
+ 
+ Perform Initial PostgreSQL Configuration
+ 
+ $sudo postgresql-setup initdb
+ 
+ $sudo systemctl start postgresql
+ $sudo systemctl enable postgresql
+ 
+ With the database started, we actually need to adjust the values in one of the configuration files that has been populated.  
+ start and enable PostgreSQL using systemctl
+ 
+ sudo nano /var/lib/pgsql/data/pg_hba.conf
+ 
+ We can configure this by modifying the two host lines at the bottom of the file. Change the last column to md5. This will allow password authentication:
+ 
+ Create a Database and Database User
+ we will create two database and two user and grant privilage
+ 
+ 
+ $sudo su - postgres
+ 
+ save and close
+ $sudo systemctl restart postgresql
+
+
+ 
+ $sudo -i -u postgres
+ $psql
+ 
+ 
+create database app1db;
+create user app1user with password '******';
+ 
+grant all privileges on database app1db to app1user;
+
+create database app2db;
+create user app2user with password '******';
+ 
+grant all privileges on database app2db to app2user;
+
+
+
+now 
+
+$cd app1 
+edit setting.py
+
+add/update the follwwing
+
+$nano ~/app1/app1/settings.py
+
+ALLOWED_HOSTS = ['*']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'app1db',
+        'USER': 'app1user',
+        'PASSWORD': 'TypePasswordHere',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
 # install virtualenv and virtualenvwrapper globally by typing:
 
 sudo pip3 install virtualenv virtualenvwrapper
@@ -48,7 +119,25 @@ source your shell initialization script for current session
 
 source ~/.bashrc
 
+# Create Django Projects
 
+$ cd ~
+
+mkvirtualenv -p python3 app1     //use -p pytho3 to select python 3 not the default python 2.7.5
+
+install Django
+
+$ pip3 install django
+
+With Django installed, we can create our first application app1:
+
+django-admin.py startproject app1
+
+
+
+
+
+./manage.py migrate
 
 # Installing Nginx
 sudo apt install -y nginx curl
