@@ -402,6 +402,25 @@ check for status
 $sudo systemctl status uwsgi
 
 
+we configure nginx reverse proxy used port bases not name based 
+
+so we have to open both 9090 & 9191 o firewall to allow connection 
+
+$ sudo firewall-cmd --permanent --zone=public --add-port=9090/tcp
+$ sudo firewall-cmd --permanent --zone=public --add-port=9191/tcp
+$ sudo firewall-cmd --reload
+
+
+
+now test both app via nginx proxy server http://<ip>:<port>
+ 
+open in browser 
+
+http://<ip>:9090
+http://<ip>:9191
+ 
+
+
 
 
 
