@@ -4,7 +4,7 @@ freashly installed Centos 7 Virtula Machine
 
 create non root user with sudo privilage 
 
-$useradd django 
+<b>$useradd django </b>
 
 set password 
 
