@@ -89,16 +89,16 @@ $nano ~/app1/app1/settings.py
 
 ALLOWED_HOSTS = ['*']
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'app1db',
-        'USER': 'app1user',
-        'PASSWORD': 'TypePasswordHere',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+<p> DATABASES = { </p>
+   </p> 'default': { </p>
+       <p> 'ENGINE': 'django.db.backends.postgresql_psycopg2',</p>
+       <p> 'NAME': 'app1db',</p>
+       </p> 'USER': 'app1user',</p>
+       <p> 'PASSWORD': 'TypePasswordHere',</p>
+       <p> 'HOST': 'localhost',</p>
+       <p> 'PORT': '',</p>
+   <p> }</p>
+<p>}</p>
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
