@@ -69,7 +69,7 @@ Once EPEL is enabled, we can install pip by typing:
 <b>postgres=#create database app1db; </b>
 <b>postgres=#create user app1user with password '******';</b>
  
-<b>postgres=#grant all privileges on database app1db to app1user;</>
+<b>postgres=#grant all privileges on database app1db to app1user;</b>
 
 <b>postgres=#create database app2db;</b>
 <b>postgres=#create user app2user with password '******';</b>
@@ -80,14 +80,14 @@ Once EPEL is enabled, we can install pip by typing:
 
 # install virtualenv and virtualenvwrapper globally by typing:
 
-<b>sudo pip3 install virtualenv virtualenvwrapper</b>
+<b>$sudo pip3 install virtualenv virtualenvwrapper</b>
 
 configure our shell with the information it needs to work with the virtualenvwrapper script. Our virtual environments will all be placed within a directory in our home folder called Env for easy access. This is configured through an environmental variable called WORKON_HOME. We can add this to our shell initialization script and can source the virtual environment wrapper script.
 
 To add the appropriate lines to your shell initialization script, you need to run the following commands:
 
-<p>$echo "export WORKON_HOME=~/Env" >> ~/.bashrc</p>
-<p>$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc </p>
+<p><b>$echo "export WORKON_HOME=~/Env" >> ~/.bashrc</b></p>
+<p><b>$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc</b> </p>
 
 source your shell initialization script for current session
 
