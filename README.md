@@ -27,7 +27,7 @@ we first need to enable the EPEL repository
 check current python version 
 
 <b>$python -V</b>
-2.7.5
+<p>2.7.5</p>
 
 Once EPEL is enabled, we can install pip by typing:
 
