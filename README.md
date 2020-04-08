@@ -406,9 +406,9 @@ we configure nginx reverse proxy used port bases not name based
 
 so we have to open both 9090 & 9191 o firewall to allow connection 
 
-<b>$ sudo firewall-cmd --permanent --zone=public --add-port=9090/tcp</b>
-<b>$ sudo firewall-cmd --permanent --zone=public --add-port=9191/tcp </b>
-<b>$ sudo firewall-cmd --reload</b>
+<p><b>$ sudo firewall-cmd --permanent --zone=public --add-port=9090/tcp</b></p>
+<p><b>$ sudo firewall-cmd --permanent --zone=public --add-port=9191/tcp </b></p>
+<p><b>$ sudo firewall-cmd --reload</b></p>
 
 
 
