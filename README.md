@@ -1,4 +1,4 @@
-# deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server
+# deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server on CentOS 7
 
 Ubuntu 18 freashly installed Virtula Machine
 
