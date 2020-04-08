@@ -1,8 +1,52 @@
 # deploying Django,PostgreSQL and NGINX as reverse proxy for uWSGI app server on CentOS 7
 
-Ubuntu 18 freashly installed Virtula Machine
+freashly installed Centos 7 Virtula Machine
 
-oracle@devops:~$ sudo apt update
+create no root user with sudo privilage 
+
+useradd django 
+
+set password 
+
+passwd django
+
+As root, run this command to add your new user to the wheel group
+
+gpasswd -a django wheel
+
+upadte the OS 
+
+su - django
+
+sudo yum update -y
+
+we first need to enable the EPEL repository
+
+sudo yum install epel-release
+
+check current python version 
+
+python -V
+2.7.5
+
+Once EPEL is enabled, we can install pip by typing:
+
+sudo yum install python3 python3-pip 
+
+# install virtualenv and virtualenvwrapper globally by typing:
+
+sudo pip3 install virtualenv virtualenvwrapper
+
+configure our shell with the information it needs to work with the virtualenvwrapper script. Our virtual environments will all be placed within a directory in our home folder called Env for easy access. This is configured through an environmental variable called WORKON_HOME. We can add this to our shell initialization script and can source the virtual environment wrapper script.
+
+To add the appropriate lines to your shell initialization script, you need to run the following commands:
+
+echo "export WORKON_HOME=~/Env" >> ~/.bashrc
+echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
+
+source your shell initialization script for current session
+
+source ~/.bashrc
 
 
 
