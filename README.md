@@ -419,6 +419,10 @@ open in browser
 http://<ip>:9090
 http://<ip>:9191
  
+ so by using nginx server block and uwsgi ini configration we can serve multiple application on the same host
+ 
+ 
+ 
 
 
 
