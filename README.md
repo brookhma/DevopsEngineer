@@ -8,41 +8,41 @@ create non root user with sudo privilage
 
 set password 
 
-$passwd django
+<b>$passwd django</b>
 
 As root, run this command to add your new user to the wheel group
 
-$gpasswd -a django wheel
+<b>$gpasswd -a django wheel</b>
 
 upadte the OS 
 
-$su - django
+<b>$su - django</b>
 
-$sudo yum update -y
+<b>$sudo yum update -y</b>
 
 we first need to enable the EPEL repository
 
-$sudo yum install epel-release
+<b>$sudo yum install epel-release</b>
 
 check current python version 
 
-$python -V
+<b>$python -V</b>
 2.7.5
 
 Once EPEL is enabled, we can install pip by typing:
 
-$sudo yum install python3 python3-pip 
+<b>$sudo yum install python3 python3-pip </b>
 
 # Install and Use PostgreSQL
 
- $sudo yum install postgresql-server gcc postgresql-devel postgresql-contrib
+ <b>$sudo yum install postgresql-server gcc postgresql-devel postgresql-contrib</>
  
  Perform Initial PostgreSQL Configuration
  
- $sudo postgresql-setup initdb
+<b> $sudo postgresql-setup initdb</b>
  
- $sudo systemctl start postgresql
- $sudo systemctl enable postgresql
+ <b>$sudo systemctl start postgresql</b>
+<b> $sudo systemctl enable postgresql</b>
  
  With the database started, we actually need to adjust the values in one of the configuration files that has been populated.  
  start and enable PostgreSQL using systemctl
