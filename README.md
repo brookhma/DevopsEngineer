@@ -47,7 +47,7 @@ Once EPEL is enabled, we can install pip by typing:
  With the database started, we actually need to adjust the values in one of the configuration files that has been populated.  
  start and enable PostgreSQL using systemctl
  
- $sudo nano /var/lib/pgsql/data/pg_hba.conf
+ <b>$sudo nano /var/lib/pgsql/data/pg_hba.conf</b>
  
  We can configure this by modifying the two host lines at the bottom of the file. Change the last column to md5. This will allow password authentication:
  
@@ -55,15 +55,15 @@ Once EPEL is enabled, we can install pip by typing:
  we will create two database and two user and grant privilage
  
  
- $sudo su - postgres
+<b> $sudo su - postgres</b>
  
  save and close
- $sudo systemctl restart postgresql
+<b> $sudo systemctl restart postgresql</b>
 
 
  
- $sudo -i -u postgres
- $psql
+ <b>$sudo -i -u postgres</b>
+ <b>$psql</b>
  
  
 create database app1db;
@@ -80,39 +80,39 @@ grant all privileges on database app2db to app2user;
 
 # install virtualenv and virtualenvwrapper globally by typing:
 
-sudo pip3 install virtualenv virtualenvwrapper
+<b>sudo pip3 install virtualenv virtualenvwrapper</b>
 
 configure our shell with the information it needs to work with the virtualenvwrapper script. Our virtual environments will all be placed within a directory in our home folder called Env for easy access. This is configured through an environmental variable called WORKON_HOME. We can add this to our shell initialization script and can source the virtual environment wrapper script.
 
 To add the appropriate lines to your shell initialization script, you need to run the following commands:
 
-<p>$echo "export WORKON_HOME=~/Env" >> ~/.bashrc</p>
-<p>$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc</p>
+<p><b>$echo "export WORKON_HOME=~/Env" >> ~/.bashrc</b></p>
+<p><b>$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc</b></p>
 
-$source your shell initialization script for current session
+source your shell initialization script for current session
 
-$source ~/.bashrc
+<p><b>$source ~/.bashrc </b></p>
 
 # Create Django Projects
 
-$ cd ~
+<b>$ cd ~ </b>
 
-mkvirtualenv -p python3 app1     //use -p pytho3 to select python 3 not the default python 2.7.5
+<b>$mkvirtualenv -p python3 app1 </b>    
 
 install Django
 
-$ pip3 install django
+<b>$ pip3 install django</b>
 
 With Django installed, we can create our first application app1:
 
-django-admin.py startproject app1
+<b>$./django-admin.py startproject app1</b>
 
-$cd app1 
+<b>$cd app1 </b>
 edit setting.py
 
 add/update the follwwing
 
-$nano ~/app1/app1/settings.py
+<b>$nano ~/app1/app1/settings.py</b>
 
 ALLOWED_HOSTS = ['*']
 
@@ -130,22 +130,22 @@ ALLOWED_HOSTS = ['*']
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-$./manage.py migrate
+<b>$./manage.py migrate</b>
 
  create User 
 
-$./manage.py createsuperuser 
+<b>$./manage.py createsuperuser </b>
 
 collect our site’s static elements and place them within that directory by typing:
 
-$./manage.py collectstatic
+<b>$./manage.py collectstatic</b>
 
 
 then test project
 
 we can test our project by temporarily starting the development 
 
-$./manage.py runserver 0.0.0.0:8080
+</b>$./manage.py runserver 0.0.0.0:8080</b>
 
 This will start up the development server on port 8080.  to check open on browser 
 
@@ -154,17 +154,16 @@ http://server_domain_or_IP:8080
 
 if successfull create another application app2
 
-$ cd ~
+<b>$ cd ~</b>
 
-mkvirtualenv -p python3 app1     //use -p pytho3 to select python 3 not the default python 2.7.5
+<b>$ mkvirtualenv -p python3 app1      </b>
 
 install Django
 
-$ pip3 install django
+<b>$ $ pip3 install django </b>
 
 With Django installed, we can create our first application app1:
-
-django-admin.py startproject app2
+<b> $django-admin.py startproject app2 </b>
 
 $cd app1 
 edit setting.py
