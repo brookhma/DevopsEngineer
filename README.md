@@ -566,3 +566,9 @@ Start by creating and opening a new server block in Nginx's sites-available dire
 
 sudo nano /etc/nginx/sites-available/testproject.conf
 
+Welcome To The Best Online HTML Web Editor!
+
+You can type your text directly in the editor or paste it from a Word Doc, PDF, Excel etc.
+
+The visual editor on the right and the source editor on the left are linked together and the changes are reflected in the other one as you type! smiley
+
