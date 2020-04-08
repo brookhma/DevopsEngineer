@@ -35,7 +35,7 @@ Once EPEL is enabled, we can install pip by typing:
 
 # Install and Use PostgreSQL
 
- <b>$sudo yum install postgresql-server gcc postgresql-devel postgresql-contrib</>
+ <b>$sudo yum install postgresql-server gcc postgresql-devel postgresql-contrib</b>
  
  Perform Initial PostgreSQL Configuration
  
