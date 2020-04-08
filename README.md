@@ -165,12 +165,12 @@ install Django
 With Django installed, we can create our first application app1:
 <b> $django-admin.py startproject app2 </b>
 
-$cd app1 
+<b>$cd app1 </b>
 edit setting.py
 
 add/update the follwwing
 
-$nano ~/app2/app2/settings.py
+<b>$nano ~/app2/app2/settings.py</b>
 
 ALLOWED_HOSTS = ['*']
 
@@ -188,22 +188,22 @@ ALLOWED_HOSTS = ['*']
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-$./manage.py migrate
+<b>$./manage.py migrate</b>
 
  create User 
 
-$./manage.py createsuperuser 
+<b>$./manage.py createsuperuser </b>
 
 collect our site’s static elements and place them within that directory by typing:
 
-./manage.py collectstatic
+<b>./manage.py collectstatic</b>
 
 
 then test project
 
 we can test our project by temporarily starting the development 
 
-$./manage.py runserver 0.0.0.0:8181
+</b>$./manage.py runserver 0.0.0.0:8181</b>
 
 This will start up the development server on port 8080.  to check open on browser 
 
@@ -211,25 +211,25 @@ http://server_IP:8181
 
 
 # Installing Nginx
-$sudo yum install -y nginx  
+<b>$sudo yum install -y nginx  </b>
 
 create two site-avliable & site-enabled folder on nginx for proxy baypassing for the two app1 & app2 django application
 
 
-$sudo mkdir  /etc/nginx/sites-available
-$suod mkdir  /etc/nginx/sites-available
+<b>$sudo mkdir  /etc/nginx/sites-available</b>
+<b>$suod mkdir  /etc/nginx/sites-available</b>
 
 
 create two server block app1.conf & app2.conf in site avaliable 
 
-$sudo nano /etc/nginx/sites-available/app1.conf
-$sudo nano /etc/nginx/sites-available/app2.conf
+<b>$sudo nano /etc/nginx/sites-available/app1.conf</b>
+<b>$sudo nano /etc/nginx/sites-available/app2.conf</b>
 
 add the following line on /etc/nginx/nginx.conf to include sites-enabled configuartion
 
 include /etc/nginx/sites-enabled/*.conf;
 
-$sudo nano /etc/nginx/nginx.conf
+<b>$sudo nano /etc/nginx/nginx.conf</b>
 
 
 # Setting up the uWSGI Application Server
@@ -238,22 +238,22 @@ Now that we have two Django projects app1 & app2 set up and ready to go, we can 
 
 install uWSGI globally
 
-$sudo pip3 install uwsgi
+<b>$sudo pip3 install uwsgi</b>
 
 test this application server by passing it the information for app1. 
 
-$uwsgi --http :8080 --home /home/django/Env/app1 --chdir /home/djang/app1 -w app1.wsgi
+<b>$uwsgi --http :8080 --home /home/django/Env/app1 --chdir /home/djang/app1 -w app1.wsgi</b>
 
 
 # Creating Configuration Files uwsgi
 
 Running uWSGI from the command line is useful for testing, but isn’t particularly helpful for an actual deployment. Instead, we will run uWSGI in “Emperor mode”, which allows a master process to manage separate applications automatically given a set of configuration files.
-
-$sudo mkdir -p /etc/uwsgi/sites
-$cd /etc/uwsgi/sites
+<b>
+$sudo mkdir -p /etc/uwsgi/sites</b>
+<b>$cd /etc/uwsgi/sites</b>
 
 create uwsgi config for app1
-$sudo nano app1.ini
+<b>$sudo nano app1.ini</b>
 
 and past the following 
 
@@ -281,7 +281,7 @@ vacuum = true
 
 create uwsgi config for app1
 
-$sudo nano app2.ini
+<b>$sudo nano app2.ini</b>
 
 and past the following 
 
@@ -313,7 +313,7 @@ When you are finished with this, save and close the file.
 
 We now have the configuration files we need to serve our Django projects app1 & app2, but we still haven’t automated the process. Next, we’ll create a Systemd unit file to automatically start uWSGI at boot.
 
-$sudo nano /etc/systemd/system/uwsgi.service
+<b>$sudo nano /etc/systemd/system/uwsgi.service</b>
 
 and paste the following
 
@@ -338,7 +338,7 @@ When you are finished with this, save and close the file.
 
 now update the nginx server blocks for each app1 & app2 
 
-$sudo /etc/nginx/sites-available/app1.conf
+<b>$sudo /etc/nginx/sites-available/app1.conf</b>
 
 add the follwing
 
@@ -357,7 +357,7 @@ server {
     }
 }
 
-$sudo /etc/nginx/sites-available/app2.conf
+<b>$sudo /etc/nginx/sites-available/app2.conf</b>
 
 add the follwing
 
@@ -378,27 +378,28 @@ server {
 
 now create symbolic link of both app1.conf and app2.conf  to site-enabled
 
-sudo ln -s /etc/nginx/sites-available/app1.conf /etc/nginx/sites-sites-enabled/app1.conf
-sudo ln -s /etc/nginx/sites-available/app2.conf /etc/nginx/sites-sites-enabled/app2.conf
+<b>$sudo ln -s /etc/nginx/sites-available/app1.conf /etc/nginx/sites-sites-enabled/app1.conf</b>
+
+<b>$sudo ln -s /etc/nginx/sites-available/app2.conf /etc/nginx/sites-sites-enabled/app2.conf</b>
 
 test for configuration error
 
-$sudo nginx -t
+<b>$sudo nginx -t</b>
 
 restart nginx server 
 
-$sudo systemctl restart nginx
+<b>$sudo systemctl restart nginx</b>
 
 
 
 finally start and enable uwsgi service 
 
-$sudo systemctl start uwsgi
-$sudo systemctl enable uwsgi
+<b>$sudo systemctl start uwsgi</b>
+<b>$sudo systemctl enable uwsgi</b>
 
 check for status
 
-$sudo systemctl status uwsgi
+<b>$sudo systemctl status uwsgi</b>
 
 
 we configure nginx reverse proxy used port bases not name based 
