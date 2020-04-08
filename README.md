@@ -86,8 +86,8 @@ configure our shell with the information it needs to work with the virtualenvwra
 
 To add the appropriate lines to your shell initialization script, you need to run the following commands:
 
-$echo "export WORKON_HOME=~/Env" >> ~/.bashrc
-$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
+<p>$echo "export WORKON_HOME=~/Env" >> ~/.bashrc</p>
+<p>$echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc</p>
 
 $source your shell initialization script for current session
 
