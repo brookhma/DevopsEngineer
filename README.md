@@ -63,18 +63,18 @@ Once EPEL is enabled, we can install pip by typing:
 
  
  <b>$sudo -i -u postgres</b>
- <b>$psql</b>
+ <p> <b>$psql</b></p>
  
  
-create database app1db;
-create user app1user with password '******';
+<b>postgres=#create database app1db; </b>
+<b>postgres=#create user app1user with password '******';</b>
  
-grant all privileges on database app1db to app1user;
+<b>postgres=#grant all privileges on database app1db to app1user;</>
 
-create database app2db;
-create user app2user with password '******';
+<b>postgres=#create database app2db;</b>
+<b>postgres=#create user app2user with password '******';</b>
  
-grant all privileges on database app2db to app2user;
+<b>postgres=#grant all privileges on database app2db to app2user;</b>
 
 
 
